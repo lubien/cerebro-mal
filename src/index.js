@@ -1,4 +1,5 @@
 'use strict';
+const debounce = require('p-debounce')
 const popura = require('popura')
 const parseEntities = require('parse-entities')
 const mal = popura('lubiencerebro', 'not-so-random-string')
@@ -19,11 +20,11 @@ const sort = f => xs => xs.sort(f)
 
 const truthy = x => !!x
 
-const search = memoize((type, query) =>
+const search = debounce(memoize((type, query) =>
   type === 'anime'
     ? mal.searchAnimes(query)
     : mal.searchMangas(query)
-, memoizationSettings)
+, memoizationSettings), 300)
 
 const generateUrl = (type, id) =>
   `https://myanimelist.net/${type}/${id}`

@@ -37,6 +37,7 @@
     "cerebro-tools": "^0.1.0",
     "css-loader": "^0.26.0",
     "json-loader": "^0.5.4",
+    "p-debounce": "^1.0.0",
     "parse-entities": "^1.1.0",
     "popura": "^1.2.5",
     "react": "^15.4.1",
